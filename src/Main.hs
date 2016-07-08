@@ -10,9 +10,11 @@ main = do
   putStrLn "Enter a message: "
   message <- getLine
   putStrLn "Enter a number of times to print: "
-  repeat <- getLine
+  repeat <- readLn
 
-  replicateM_ (read repeat) (putStrLn message)
+  -- when this is specialized to IO () the
+  -- return type is IO ()
+  replicateM_ repeat (putStrLn message)
   -- putStrLn "Enter your name: "
   -- name <- getLine
   -- putStrLn $ greet name
