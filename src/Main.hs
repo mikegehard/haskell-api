@@ -12,7 +12,12 @@ main = do
 routes :: ScottyM ()
 routes = do
     get "/hello" sayHello
+    get "/goodbye" sayGoodBye
 
 sayHello :: ActionM()
 sayHello = do
     text "Hello!"
+
+sayGoodBye :: ActionM ()
+-- you don't need the do if you only have one monadic action
+sayGoodBye = text "Goodbye!"
