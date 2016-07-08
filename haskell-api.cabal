@@ -2,12 +2,12 @@ name:                haskell-api
 version:             0.1.0.0
 synopsis:            Simple project template from stack
 description:         Please see README.md
-homepage:            https://github.com/githubuser/haskell-api#readme
-license:             BSD3
+homepage:            https://github.com/mikegehard/haskell-api#readme
+license:             MIT
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2016 Author name here
+author:              Mike Gehard
+maintainer:          mike.gehard@gmail.com
+copyright:           2016 Mike Gehard
 category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
