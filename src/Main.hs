@@ -1,16 +1,31 @@
 module Main where
 
-import           Data.Aeson (encode)
-import           Data.Time  (getCurrentTime)
-import           System.IO  (readFile)
+import           Control.Monad (replicateM_)
+import           Data.Aeson    (encode)
+import           Data.Time     (getCurrentTime)
+import           System.IO     (readFile)
 
 main :: IO ()
 main = do
-  putStrLn "Enter your name: "
-  name <- getLine
-  putStrLn $ greet name
-  putStrLn $ greet "World"
-  printTime
+  putStrLn "Enter a message: "
+  message <- getLine
+  putStrLn "Enter a number of times to print: "
+  repeat <- getLine
+
+  replicateM_ (read repeat) (putStrLn message)
+  -- putStrLn "Enter your name: "
+  -- name <- getLine
+  -- putStrLn $ greet name
+  -- putStrLn $ greet "World"
+  -- printTime
+
+doSomething :: IO ()
+doSomething = do
+  let action = putStrLn "Hello"
+  action
+  action
+  action
+  return ()
 
 greet :: String -> String
 greet name = "Hello " ++ name ++ "!"
@@ -29,3 +44,9 @@ numbers :: [Int]
 numbers = [1,2,3,4]
 
 printNumbers = print $ encode numbers
+
+beCareful :: Maybe Int
+beCareful = do
+  Just 6
+  Nothing
+  return 5
