@@ -1,17 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Main where
+module WebApp (routes)  where
 
 import           Data.Aeson  (FromJSON, ToJSON)
 import           Data.Monoid ((<>))
 import           Debug.Trace
 import           Users
 import           Web.Scotty
-
-main :: IO ()
-main = do
-    putStrLn "Starting server..."
-    scotty 3000 routes
 
 routes :: ScottyM ()
 routes = do
@@ -43,4 +38,4 @@ getUsers = json allUsers
 getUsersForId :: ActionM ()
 getUsersForId = do
     id <- param "id"
-    json $ matchingUsers id
+    json $ matchingUsers id allUsers

@@ -8,10 +8,14 @@ http://seanhess.github.io/2015/08/04/practical-haskell-getting-started.html
 
 * [Stack](http://docs.haskellstack.org/en/stable/README/)
 
+## Run tests
+
+`stack test`
+
 ## Build
 
 `stack build`
 
 ## Run: 
 
-`stack exec haskell-api`
+`stack exec haskellApi`
