@@ -3,9 +3,10 @@
 module WebApp (routes)  where
 
 import           Data.Aeson  (FromJSON, ToJSON)
+-- force me to use the prefix. This helps figuring out where
+-- functions come from.
 import           Data.Monoid ((<>))
-import           Debug.Trace
-import           Users
+import qualified Users
 import           Web.Scotty
 
 routes :: ScottyM ()
@@ -26,16 +27,16 @@ routes = do
 sayHello :: ActionM()
 sayHello = do
     name <- param "name"
-    text ("Hello " <> trace (show name) name <> "!")
+    text ("Hello " <> name <> "!")
 
 sayGoodBye :: ActionM ()
 -- you don't need the do if you only have one monadic action
 sayGoodBye = text "Goodbye!"
 
 getUsers :: ActionM ()
-getUsers = json allUsers
+getUsers = json Users.all
 
 getUsersForId :: ActionM ()
 getUsersForId = do
     id <- param "id"
-    json $ matchingUsers id allUsers
+    json $ Users.matching id Users.all

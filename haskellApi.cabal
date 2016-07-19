@@ -27,7 +27,8 @@ executable haskellApi
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5,
                        haskellApi,
-                       scotty
+                       scotty,
+                       wai-extra
                        
 
 test-suite haskellApi-test
